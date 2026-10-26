@@ -11,12 +11,13 @@ services:
       - HASHED_PASSWORD= #optional
       - SUDO_PASSWORD= #optional
       - SUDO_PASSWORD_HASH= #optional
-      - PROXY_DOMAIN=code.hatamoto.uk #optional
+      - PROXY_DOMAIN= #optional
       - DEFAULT_WORKSPACE=/config/workspace #optional
       - PWA_APPNAME=code-server #optional
     volumes:
-      - /home/ubuntu/.code_server:/config
-      # Behind a reverse proxy
-    #ports:
-      #- 8443:8443
+      - /path/to/config:/config
+      # When behind a reverse proxy
+      # Comment the line below 
+    ports:
+      - 8443:8443
     restart: unless-stopped
