@@ -1,0 +1,15 @@
+service:
+ code-server:
+  labels:
+      # Enable traefik
+      - "traefik.enable=true"
+      - "traefik.http.routers.code-server.tls.certresolver=myresolver"
+      - "traefik.http.routers.code-server.entrypoints=websecure"
+      - "traefik.http.routers.code-server.rule=Host(`code.hatamoto.uk`)"
+      # Authentication
+      - "traefik.http.routers.code-server.middlewares=authentik@docker"
+    networks:
+      - komodo_default
+networks:
+ komodo_default:
+  external: true

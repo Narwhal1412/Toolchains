@@ -1,0 +1,22 @@
+---
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-Admin
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=	Asia/Ho_Chi_Minh
+      - PASSWORD= #optional
+      - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD= #optional
+      - SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=code.hatamoto.uk #optional
+      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - PWA_APPNAME=code-server #optional
+    volumes:
+      - /home/ubuntu/.code_server:/config
+      # Behind a reverse proxy
+    #ports:
+      #- 8443:8443
+    restart: unless-stopped
