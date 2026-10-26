@@ -8,7 +8,7 @@ service:
       - "traefik.http.routers.code-server.rule=Host(`code.hatamoto.uk`)"
       # Authentication
       - "traefik.http.routers.code-server.middlewares=authentik@docker"
-    networks:
+  networks:
       - komodo_default
 networks:
  komodo_default:
