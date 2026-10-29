@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=	Asia/Ho_Chi_Minh
+      - TZ=
       - PASSWORD= #optional
       - HASHED_PASSWORD= #optional
       - SUDO_PASSWORD= #optional
